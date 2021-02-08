@@ -1,12 +1,14 @@
 const Vue = window.Vue
 Vue.config.productionTip = false
 
+// Vue.component('Demo2', {
+//   template: `
+//     <div>demo2</div>
+//   `
+// })
 import Demo from './demo.vue'
-
 new Vue({
-  components: {
-    Demo
-  },
+  components: { Demo },
   // el: '#jerry',
   //  template: `
   //  <div>hi</div>
@@ -21,18 +23,22 @@ new Vue({
   <div class="red">
   {{n}}
   <button @click="add">+1</button>
-  <Demo />
-  <hr>
-  {{filter()}}
+  <Demo :message="n"/>
   </div>
  `,
+ created(){
+   console.log('这玩意出现在内存中')
+ },
+ mounted(){
+   console.log('这玩意出现在页面中')
+ },
+ updated(){
+   console.log('更新了')
+   console.log(this.n)
+ },
  methods: {
    add(){
      this.n += 1
    },
-   filter(){
-     console.log('执行了 filter 函数')
-    return this.array.filter(i => i % 2 === 0)
-   }
  }
 }).$mount('#jerry')

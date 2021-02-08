@@ -1,26 +1,19 @@
 <template>
   <div class="red">
-   demo
+    这是 Demo 内部
+    {{message}}
   </div>
 </template>
 
 <script>
 export default {
-  data(){
-    return {
-      n: 0
-    }
-  },
-  methods: {
-    add(){
-      this.n += 1
-    }
-  }
+  props: ['message']
 }
 </script>
 
 <style scoped>
   .red{
     color: red;
+    border: 1px solid blue;
   }
 </style>
